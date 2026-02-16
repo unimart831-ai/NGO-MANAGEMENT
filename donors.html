@@ -10,7 +10,21 @@
 </head>
 <body>
 
-  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');"><i class="fas fa-bars"></i></button>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <div class="mobile-brand">
+      <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="mobile-logo"><i class="fas fa-heart"></i></div>
+      <span class="mobile-title">Donors</span>
+    </div>
+    <div class="mobile-actions">
+      <button class="icon-btn"><i class="fas fa-search"></i></button>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-dot"></span></button>
+    </div>
+  </header>
+
   <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('show');"></div>
 
   <aside class="sidebar">
