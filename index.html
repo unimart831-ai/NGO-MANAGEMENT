@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — HopeLink NGO Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('show');"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-icon"><i class="fas fa-heart"></i></div>
+      <div><h4>HopeLink</h4><small>NGO Management</small></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <a href="index.html" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="donors.html"><i class="fas fa-users"></i> Donors</a>
+      <a href="donations.html"><i class="fas fa-hand-holding-usd"></i> Donations <span class="badge">12</span></a>
+      <a href="campaigns.html"><i class="fas fa-bullhorn"></i> Campaigns</a>
+      <div class="nav-section">Operations</div>
+      <a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a>
+      <a href="volunteers.html"><i class="fas fa-people-carry"></i> Volunteers</a>
+      <a href="beneficiaries.html"><i class="fas fa-child"></i> Beneficiaries</a>
+      <div class="nav-section">Finance</div>
+      <a href="payments.html"><i class="fas fa-credit-card"></i> Payments <span class="badge">3</span></a>
+      <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-file-invoice-dollar"></i> Expenses</a>
+      <div class="nav-section">System</div>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <header class="top-navbar">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="search-box">
+        <i class="fas fa-search" style="color: var(--text-muted);"></i>
+        <input type="text" placeholder="Search donors, campaigns, activities...">
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-dot"></span></button>
+        <button class="icon-btn"><i class="fas fa-envelope"></i></button>
+        <div class="user-profile">
+          <div class="avatar">JM</div>
+          <div class="user-info"><div class="name">Jane Muthoni</div><div class="role">Administrator</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- Stat Cards -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-hand-holding-usd"></i></div>
+          <div class="stat-info">
+            <h3>KES 4,520,000</h3>
+            <p>Total Donations</p>
+            <span class="trend up"><i class="fas fa-arrow-up"></i> 18% this month</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+          <div class="stat-info">
+            <h3>324</h3>
+            <p>Active Donors</p>
+            <span class="trend up"><i class="fas fa-arrow-up"></i> 12 new</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="fas fa-bullhorn"></i></div>
+          <div class="stat-info">
+            <h3>8</h3>
+            <p>Active Campaigns</p>
+            <span class="trend up"><i class="fas fa-arrow-up"></i> 2 this week</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple"><i class="fas fa-people-carry"></i></div>
+          <div class="stat-info">
+            <h3>156</h3>
+            <p>Volunteers</p>
+            <span class="trend up"><i class="fas fa-arrow-up"></i> 8 new</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h5>Donation Trends</h5>
+            <select style="padding: 5px 10px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 12px;">
+              <option>Last 6 Months</option>
+              <option>Last Year</option>
+            </select>
+          </div>
+          <div class="card-body">
+            <div class="chart-placeholder">
+              <div style="text-align: center; width: 100%;">
+                <div style="display: flex; align-items: flex-end; gap: 12px; height: 180px; justify-content: center; padding: 0 10px;">
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 40%; opacity:0.7;"></div>
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 55%; opacity:0.75;"></div>
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 45%; opacity:0.8;"></div>
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 70%; opacity:0.85;"></div>
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 60%; opacity:0.9;"></div>
+                  <div style="flex:1; max-width:42px; background: var(--primary); border-radius: 6px 6px 0 0; height: 85%;"></div>
+                </div>
+                <div style="display: flex; gap: 12px; justify-content: center; margin-top: 8px; font-size: 11px; color: var(--text-muted);">
+                  <span style="flex:1; max-width:42px;">Sep</span><span style="flex:1; max-width:42px;">Oct</span><span style="flex:1; max-width:42px;">Nov</span><span style="flex:1; max-width:42px;">Dec</span><span style="flex:1; max-width:42px;">Jan</span><span style="flex:1; max-width:42px;">Feb</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h5>Recent Activity</h5>
+            <a href="#" class="btn btn-sm btn-outline">View All</a>
+          </div>
+          <div class="card-body" style="padding: 12px 18px;">
+            <ul class="activity-timeline">
+              <li>
+                <div class="timeline-icon" style="background: #e8f5e9; color: var(--success);"><i class="fas fa-donate"></i></div>
+                <div class="timeline-content">
+                  <div class="title">New donation of <strong>KES 50,000</strong> from Peter Kamau</div>
+                  <div class="time">2 hours ago</div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-icon" style="background: #e3f2fd; color: var(--info);"><i class="fas fa-user-plus"></i></div>
+                <div class="timeline-content">
+                  <div class="title">New volunteer <strong>Grace Njeri</strong> registered</div>
+                  <div class="time">5 hours ago</div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-icon" style="background: #fff3e0; color: var(--accent);"><i class="fas fa-bullhorn"></i></div>
+                <div class="timeline-content">
+                  <div class="title">Campaign <strong>"Clean Water Drive"</strong> reached 75% goal</div>
+                  <div class="time">Yesterday</div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-icon" style="background: #f3e5f5; color: #9c27b0;"><i class="fas fa-calendar-check"></i></div>
+                <div class="timeline-content">
+                  <div class="title">Activity <strong>"Youth Workshop"</strong> completed</div>
+                  <div class="time">2 days ago</div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-icon" style="background: #e8f5e9; color: var(--success);"><i class="fas fa-donate"></i></div>
+                <div class="timeline-content">
+                  <div class="title">Recurring donation of <strong>KES 10,000</strong> from Safaricom Foundation</div>
+                  <div class="time">3 days ago</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Campaigns -->
+      <div class="card">
+        <div class="card-header">
+          <h5>Active Campaigns</h5>
+          <a href="campaigns.html" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> New Campaign</a>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div class="campaign-card">
+              <div class="campaign-header">
+                <h6>Clean Water for Turkana</h6>
+                <span class="badge-status ongoing">Ongoing</span>
+              </div>
+              <div class="campaign-meta"><i class="fas fa-calendar"></i> Jan 15 — Mar 30, 2026</div>
+              <div class="progress-bar-wrapper" style="margin: 10px 0 6px;"><div class="progress-bar-fill" style="width: 72%;"></div></div>
+              <div class="campaign-stats"><span>72% funded</span><span class="amount">KES 1,440,000 / 2,000,000</span></div>
+            </div>
+            <div class="campaign-card">
+              <div class="campaign-header">
+                <h6>Girls Education Scholarship</h6>
+                <span class="badge-status ongoing">Ongoing</span>
+              </div>
+              <div class="campaign-meta"><i class="fas fa-calendar"></i> Feb 1 — Jun 30, 2026</div>
+              <div class="progress-bar-wrapper" style="margin: 10px 0 6px;"><div class="progress-bar-fill orange" style="width: 35%;"></div></div>
+              <div class="campaign-stats"><span>35% funded</span><span class="amount">KES 525,000 / 1,500,000</span></div>
+            </div>
+            <div class="campaign-card">
+              <div class="campaign-header">
+                <h6>Food Relief — Coast Region</h6>
+                <span class="badge-status planned">Planned</span>
+              </div>
+              <div class="campaign-meta"><i class="fas fa-calendar"></i> Mar 1 — Apr 15, 2026</div>
+              <div class="progress-bar-wrapper" style="margin: 10px 0 6px;"><div class="progress-bar-fill blue" style="width: 10%;"></div></div>
+              <div class="campaign-stats"><span>10% funded</span><span class="amount">KES 80,000 / 800,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Donors Table -->
+      <div class="card">
+        <div class="card-header">
+          <h5>Top Donors This Month</h5>
+          <a href="donors.html" class="btn btn-sm btn-outline">View All Donors</a>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr><th>Donor</th><th>Type</th><th>Total Donated</th><th>Last Donation</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#2e7d32;">SF</div><div class="details"><div class="name">Safaricom Foundation</div><div class="email">grants@safaricom.co.ke</div></div></div></td>
+                  <td>Corporate</td><td><strong>KES 500,000</strong></td><td>Feb 10, 2026</td><td><span class="badge-status active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#1565c0;">PK</div><div class="details"><div class="name">Peter Kamau</div><div class="email">peter.kamau@gmail.com</div></div></div></td>
+                  <td>Individual</td><td><strong>KES 150,000</strong></td><td>Feb 13, 2026</td><td><span class="badge-status active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#e65100;">WV</div><div class="details"><div class="name">World Vision Kenya</div><div class="email">partnerships@wvkenya.org</div></div></div></td>
+                  <td>Organization</td><td><strong>KES 300,000</strong></td><td>Feb 5, 2026</td><td><span class="badge-status active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#6a1b9a;">AN</div><div class="details"><div class="name">Amina Noor</div><div class="email">amina.noor@outlook.com</div></div></div></td>
+                  <td>Individual</td><td><strong>KES 75,000</strong></td><td>Feb 8, 2026</td><td><span class="badge-status active">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

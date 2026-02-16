@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments — HopeLink NGO Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');"><i class="fas fa-bars"></i></button>
+  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('show');"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><div class="logo-icon"><i class="fas fa-heart"></i></div><div><h4>HopeLink</h4><small>NGO Management</small></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="donors.html"><i class="fas fa-users"></i> Donors</a>
+      <a href="donations.html"><i class="fas fa-hand-holding-usd"></i> Donations <span class="badge">12</span></a>
+      <a href="campaigns.html"><i class="fas fa-bullhorn"></i> Campaigns</a>
+      <div class="nav-section">Operations</div>
+      <a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a>
+      <a href="volunteers.html"><i class="fas fa-people-carry"></i> Volunteers</a>
+      <a href="beneficiaries.html"><i class="fas fa-child"></i> Beneficiaries</a>
+      <div class="nav-section">Finance</div>
+      <a href="payments.html" class="active"><i class="fas fa-credit-card"></i> Payments <span class="badge">3</span></a>
+      <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-file-invoice-dollar"></i> Expenses</a>
+      <div class="nav-section">System</div>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="top-navbar">
+      <h1 class="page-title">Payments</h1>
+      <div class="search-box"><i class="fas fa-search" style="color: var(--text-muted);"></i><input type="text" placeholder="Search transactions..."></div>
+      <div class="nav-actions">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-dot"></span></button>
+        <div class="user-profile"><div class="avatar">JM</div><div class="user-info"><div class="name">Jane Muthoni</div><div class="role">Administrator</div></div></div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- Payment Gateway Cards -->
+      <div class="payment-gateway-cards">
+        <div class="gateway-card">
+          <div class="gw-icon" style="background: #4caf50;"><i class="fas fa-mobile-alt"></i></div>
+          <div class="gw-body">
+            <h4>M-Pesa</h4>
+            <p>Daraja API — Paybill</p>
+            <div class="gw-status connected"><i class="fas fa-check-circle"></i> Connected</div>
+          </div>
+        </div>
+        <div class="gateway-card">
+          <div class="gw-icon" style="background: #1565c0;"><i class="fas fa-university"></i></div>
+          <div class="gw-body">
+            <h4>Bank Transfer</h4>
+            <p>Equity Bank — KES Account</p>
+            <div class="gw-status connected"><i class="fas fa-check-circle"></i> Connected</div>
+          </div>
+        </div>
+        <div class="gateway-card">
+          <div class="gw-icon" style="background: #6772e5;"><i class="fab fa-cc-stripe"></i></div>
+          <div class="gw-body">
+            <h4>Stripe</h4>
+            <p>Card Payments (Visa/MC)</p>
+            <div class="gw-status connected"><i class="fas fa-check-circle"></i> Connected</div>
+          </div>
+        </div>
+        <div class="gateway-card">
+          <div class="gw-icon" style="background: #003087;"><i class="fab fa-paypal"></i></div>
+          <div class="gw-body">
+            <h4>PayPal</h4>
+            <p>International Donations</p>
+            <div class="gw-status pending"><i class="fas fa-clock"></i> Setup Required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Bar & Filter Row -->
+      <div class="pay-tab-bar">
+        <button class="pay-tab active" onclick="switchPayTab(this)">All <span class="badge">148</span></button>
+        <button class="pay-tab" onclick="switchPayTab(this)">Incoming <span class="badge">102</span></button>
+        <button class="pay-tab" onclick="switchPayTab(this)">Outgoing <span class="badge">46</span></button>
+        <button class="pay-tab" onclick="switchPayTab(this)">Pending <span class="badge">3</span></button>
+      </div>
+
+      <div class="filter-bar">
+        <select><option>All Methods</option><option>M-Pesa</option><option>Bank Transfer</option><option>Card (Stripe)</option><option>PayPal</option></select>
+        <select><option>All Campaigns</option><option>Clean Water for Turkana</option><option>Girls Education</option><option>Tree Planting</option></select>
+        <input type="date">
+        <input type="date">
+        <button class="btn btn-primary" onclick="document.getElementById('makePaymentForm').style.display=document.getElementById('makePaymentForm').style.display==='none'?'block':'none'"><i class="fas fa-paper-plane"></i> Make Payment</button>
+      </div>
+
+      <!-- INLINE Make Payment Form -->
+      <div class="inline-form-section" id="makePaymentForm" style="display:none;">
+        <div class="inline-form-header">
+          <h5><i class="fas fa-paper-plane" style="color: var(--primary); margin-right: 8px;"></i> Make Payment</h5>
+          <button class="close-inline" onclick="document.getElementById('makePaymentForm').style.display='none'">&times;</button>
+        </div>
+        <div class="inline-form-body">
+          <!-- Payment Flow Steps -->
+          <div class="payment-flow">
+            <div class="step active"><div class="step-num">1</div><div class="step-label">Details</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-label">Approve</div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-label">Send</div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-label">Complete</div></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group"><label>Payment Type *</label><select><option>Outgoing — Expense</option><option>Outgoing — Vendor Payment</option><option>Outgoing — Salary</option><option>Outgoing — Activity Cost</option></select></div>
+            <div class="form-group"><label>Pay To *</label><input type="text" placeholder="Recipient name or vendor"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Amount (KES) *</label><input type="number" placeholder="0.00" min="0"></div>
+            <div class="form-group"><label>Payment Method *</label><select><option>M-Pesa</option><option>Bank Transfer</option><option>Card (Stripe)</option><option>PayPal</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Account / Phone No.</label><input type="text" placeholder="e.g. +254 7XX XXX XXX"></div>
+            <div class="form-group"><label>Campaign / Project</label><select><option>General Fund</option><option>Clean Water for Turkana</option><option>Girls Education Scholarship</option><option>Tree Planting Initiative</option></select></div>
+          </div>
+          <div class="form-group"><label>Description</label><textarea rows="2" placeholder="Payment description or reference..."></textarea></div>
+          <div class="form-group"><label>Attach Receipt / Invoice</label><input type="file"></div>
+
+          <!-- Checkout Summary Panel -->
+          <div class="checkout-panel">
+            <h6><i class="fas fa-receipt" style="margin-right: 6px;"></i> Payment Summary</h6>
+            <div class="checkout-row"><span>Amount:</span><span>KES 0.00</span></div>
+            <div class="checkout-row"><span>Processing Fee:</span><span>KES 0.00</span></div>
+            <div class="checkout-row total"><span>Total:</span><span>KES 0.00</span></div>
+          </div>
+
+          <div class="approval-badge"><i class="fas fa-info-circle"></i> Payments above <strong>KES 50,000</strong> require approval from the Finance Director before processing.</div>
+        </div>
+        <div class="inline-form-footer">
+          <button class="btn btn-outline" onclick="document.getElementById('makePaymentForm').style.display='none'">Cancel</button>
+          <button class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Payment</button>
+        </div>
+      </div>
+
+      <!-- Transactions Table -->
+      <div class="card">
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead><tr><th>Ref #</th><th>Date</th><th>Description</th><th>Method</th><th>Campaign</th><th>Amount (KES)</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>#TXN-20250101</strong></td><td>25 Jan 2025</td><td>Donation — Peter Kamau</td><td><i class="fas fa-mobile-alt" style="color:#4caf50;"></i> M-Pesa</td><td>Clean Water</td>
+                  <td style="color: #2e7d32; font-weight: 600;">+ 50,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250102</strong></td><td>24 Jan 2025</td><td>Vendor — PipeWorks Ltd</td><td><i class="fas fa-university" style="color:#1565c0;"></i> Bank</td><td>Clean Water</td>
+                  <td style="color: #c62828; font-weight: 600;">- 180,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250103</strong></td><td>23 Jan 2025</td><td>Donation — Grace Njeri (Monthly)</td><td><i class="fab fa-cc-stripe" style="color:#6772e5;"></i> Card</td><td>Girls Education</td>
+                  <td style="color: #2e7d32; font-weight: 600;">+ 25,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250104</strong></td><td>22 Jan 2025</td><td>Activity — Water Tanker Hire</td><td><i class="fas fa-mobile-alt" style="color:#4caf50;"></i> M-Pesa</td><td>Clean Water</td>
+                  <td style="color: #c62828; font-weight: 600;">- 35,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250105</strong></td><td>21 Jan 2025</td><td>Salary — Field Officers (Jan)</td><td><i class="fas fa-university" style="color:#1565c0;"></i> Bank</td><td>General Fund</td>
+                  <td style="color: #c62828; font-weight: 600;">- 420,000</td>
+                  <td><span class="badge-status pending">Pending Approval</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="Approve" style="color: #2e7d32;"><i class="fas fa-check"></i></button><button class="act-btn" title="Reject" style="color: #c62828;"><i class="fas fa-times"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250106</strong></td><td>20 Jan 2025</td><td>Donation — Amina Noor</td><td><i class="fas fa-mobile-alt" style="color:#4caf50;"></i> M-Pesa</td><td>Medical Outreach</td>
+                  <td style="color: #2e7d32; font-weight: 600;">+ 15,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250107</strong></td><td>19 Jan 2025</td><td>Equipment — Generator Purchase</td><td><i class="fas fa-university" style="color:#1565c0;"></i> Bank</td><td>Clean Water</td>
+                  <td style="color: #c62828; font-weight: 600;">- 95,000</td>
+                  <td><span class="badge-status pending">Pending Approval</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="Approve" style="color: #2e7d32;"><i class="fas fa-check"></i></button><button class="act-btn" title="Reject" style="color: #c62828;"><i class="fas fa-times"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-20250108</strong></td><td>18 Jan 2025</td><td>Donation — Safaricom Foundation</td><td><i class="fas fa-university" style="color:#1565c0;"></i> Bank</td><td>Tree Planting</td>
+                  <td style="color: #2e7d32; font-weight: 600;">+ 500,000</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Receipt"><i class="fas fa-receipt"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <div class="page-info">Showing 1–8 of 148 transactions</div>
+        <div class="page-btns"><button><i class="fas fa-chevron-left"></i></button><button class="active">1</button><button>2</button><button>3</button><button>...</button><button>19</button><button><i class="fas fa-chevron-right"></i></button></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchPayTab(btn) {
+      document.querySelectorAll('.pay-tab').forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

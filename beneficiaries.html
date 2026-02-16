@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beneficiaries — HopeLink NGO Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');"><i class="fas fa-bars"></i></button>
+  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('show');"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><div class="logo-icon"><i class="fas fa-heart"></i></div><div><h4>HopeLink</h4><small>NGO Management</small></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="donors.html"><i class="fas fa-users"></i> Donors</a>
+      <a href="donations.html"><i class="fas fa-hand-holding-usd"></i> Donations <span class="badge">12</span></a>
+      <a href="campaigns.html"><i class="fas fa-bullhorn"></i> Campaigns</a>
+      <div class="nav-section">Operations</div>
+      <a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a>
+      <a href="volunteers.html"><i class="fas fa-people-carry"></i> Volunteers</a>
+      <a href="beneficiaries.html" class="active"><i class="fas fa-child"></i> Beneficiaries</a>
+      <div class="nav-section">Finance</div>
+      <a href="payments.html"><i class="fas fa-credit-card"></i> Payments <span class="badge">3</span></a>
+      <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-file-invoice-dollar"></i> Expenses</a>
+      <div class="nav-section">System</div>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="top-navbar">
+      <h1 class="page-title">Beneficiaries</h1>
+      <div class="search-box"><i class="fas fa-search" style="color: var(--text-muted);"></i><input type="text" placeholder="Search beneficiaries..."></div>
+      <div class="nav-actions">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-dot"></span></button>
+        <div class="user-profile"><div class="avatar">JM</div><div class="user-info"><div class="name">Jane Muthoni</div><div class="role">Administrator</div></div></div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-child"></i></div><div class="stat-info"><h3>1,240</h3><p>Total Beneficiaries</p></div></div>
+        <div class="stat-card"><div class="stat-icon green"><i class="fas fa-user-check"></i></div><div class="stat-info"><h3>890</h3><p>Active / Enrolled</p></div></div>
+        <div class="stat-card"><div class="stat-icon purple"><i class="fas fa-layer-group"></i></div><div class="stat-info"><h3>6</h3><p>Programs</p></div></div>
+        <div class="stat-card"><div class="stat-icon orange"><i class="fas fa-map-marker-alt"></i></div><div class="stat-info"><h3>12</h3><p>Counties Reached</p></div></div>
+      </div>
+
+      <div class="filter-bar">
+        <select><option>All Programs</option><option>Clean Water</option><option>Education</option><option>Food Relief</option><option>Medical</option><option>Youth Skills</option></select>
+        <select><option>All Categories</option><option>Individual</option><option>Household</option><option>Student</option><option>Patient</option><option>Youth</option></select>
+        <select><option>All Status</option><option>Active</option><option>Completed</option><option>Withdrawn</option></select>
+        <button class="btn btn-primary" onclick="document.getElementById('addBeneficiaryForm').style.display=document.getElementById('addBeneficiaryForm').style.display==='none'?'block':'none'"><i class="fas fa-plus"></i> Add Beneficiary</button>
+      </div>
+
+      <!-- INLINE Register Beneficiary Form -->
+      <div class="inline-form-section" id="addBeneficiaryForm" style="display:none;">
+        <div class="inline-form-header">
+          <h5><i class="fas fa-user-plus" style="color: var(--primary); margin-right: 8px;"></i> Register Beneficiary</h5>
+          <button class="close-inline" onclick="document.getElementById('addBeneficiaryForm').style.display='none'">&times;</button>
+        </div>
+        <div class="inline-form-body">
+          <div class="form-row">
+            <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Full name"></div>
+            <div class="form-group"><label>ID / Registration No.</label><input type="text" placeholder="ID or registration number"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Program *</label><select><option>Select programme...</option><option>Clean Water</option><option>Education</option><option>Food Relief</option><option>Medical</option><option>Youth Skills</option></select></div>
+            <div class="form-group"><label>Category</label><select><option>Individual</option><option>Household</option><option>Student</option><option>Patient</option><option>Youth</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Location / County *</label><input type="text" placeholder="e.g. Turkana County"></div>
+            <div class="form-group"><label>Phone</label><input type="text" placeholder="+254 7XX XXX XXX"></div>
+          </div>
+          <div class="form-group"><label>Household Size</label><input type="number" placeholder="Number in household" min="1"></div>
+          <div class="form-group"><label>Notes</label><textarea rows="3" placeholder="Additional notes..."></textarea></div>
+        </div>
+        <div class="inline-form-footer">
+          <button class="btn btn-outline" onclick="document.getElementById('addBeneficiaryForm').style.display='none'">Cancel</button>
+          <button class="btn btn-primary"><i class="fas fa-save"></i> Register Beneficiary</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead><tr><th>Beneficiary</th><th>Program</th><th>Category</th><th>Location</th><th>Enrolled</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#e65100;">AE</div><div class="details"><div class="name">Aisha Ekiru</div><div class="email">ID: BEN-2024-001</div></div></div></td>
+                  <td><span class="skill-tag">Clean Water</span></td><td>Household</td><td>Turkana County</td><td>Jan 2024</td>
+                  <td><span class="badge-status active">Active</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Edit"><i class="fas fa-edit"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#1565c0;">MW</div><div class="details"><div class="name">Mercy Wairimu</div><div class="email">ID: BEN-2024-015</div></div></div></td>
+                  <td><span class="skill-tag">Education</span></td><td>Student</td><td>Kilifi County</td><td>Mar 2024</td>
+                  <td><span class="badge-status active">Active</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Edit"><i class="fas fa-edit"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#2e7d32;">HM</div><div class="details"><div class="name">Hassan Mohamed</div><div class="email">ID: BEN-2024-042</div></div></div></td>
+                  <td><span class="skill-tag">Food Relief</span></td><td>Household</td><td>Marsabit County</td><td>May 2024</td>
+                  <td><span class="badge-status active">Active</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Edit"><i class="fas fa-edit"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#6a1b9a;">LN</div><div class="details"><div class="name">Lucy Nyambura</div><div class="email">ID: BEN-2024-078</div></div></div></td>
+                  <td><span class="skill-tag">Medical</span></td><td>Patient</td><td>Nairobi County</td><td>Jul 2024</td>
+                  <td><span class="badge-status completed">Completed</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Edit"><i class="fas fa-edit"></i></button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="donor-info-cell"><div class="donor-avatar" style="background:#00695c;">JO</div><div class="details"><div class="name">Joseph Ochieng</div><div class="email">ID: BEN-2024-103</div></div></div></td>
+                  <td><span class="skill-tag">Youth Skills</span></td><td>Youth</td><td>Kisumu County</td><td>Oct 2024</td>
+                  <td><span class="badge-status active">Active</span></td>
+                  <td><div class="action-btns"><button class="act-btn" title="View"><i class="fas fa-eye"></i></button><button class="act-btn" title="Edit"><i class="fas fa-edit"></i></button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <div class="page-info">Showing 1–5 of 1,240 beneficiaries</div>
+        <div class="page-btns"><button><i class="fas fa-chevron-left"></i></button><button class="active">1</button><button>2</button><button>3</button><button>...</button><button>248</button><button><i class="fas fa-chevron-right"></i></button></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaigns — HopeLink NGO Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('show');"><i class="fas fa-bars"></i></button>
+  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('show');"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><div class="logo-icon"><i class="fas fa-heart"></i></div><div><h4>HopeLink</h4><small>NGO Management</small></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="donors.html"><i class="fas fa-users"></i> Donors</a>
+      <a href="donations.html"><i class="fas fa-hand-holding-usd"></i> Donations <span class="badge">12</span></a>
+      <a href="campaigns.html" class="active"><i class="fas fa-bullhorn"></i> Campaigns</a>
+      <div class="nav-section">Operations</div>
+      <a href="activities.html"><i class="fas fa-calendar-alt"></i> Activities</a>
+      <a href="volunteers.html"><i class="fas fa-people-carry"></i> Volunteers</a>
+      <a href="beneficiaries.html"><i class="fas fa-child"></i> Beneficiaries</a>
+      <div class="nav-section">Finance</div>
+      <a href="payments.html"><i class="fas fa-credit-card"></i> Payments <span class="badge">3</span></a>
+      <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="#"><i class="fas fa-file-invoice-dollar"></i> Expenses</a>
+      <div class="nav-section">System</div>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="top-navbar">
+      <h1 class="page-title">Campaigns</h1>
+      <div class="search-box"><i class="fas fa-search" style="color: var(--text-muted);"></i><input type="text" placeholder="Search campaigns..."></div>
+      <div class="nav-actions">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-dot"></span></button>
+        <div class="user-profile"><div class="avatar">JM</div><div class="user-info"><div class="name">Jane Muthoni</div><div class="role">Administrator</div></div></div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-icon green"><i class="fas fa-bullhorn"></i></div><div class="stat-info"><h3>14</h3><p>Total Campaigns</p></div></div>
+        <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-play-circle"></i></div><div class="stat-info"><h3>8</h3><p>Active / Ongoing</p></div></div>
+        <div class="stat-card"><div class="stat-icon orange"><i class="fas fa-check-circle"></i></div><div class="stat-info"><h3>4</h3><p>Completed</p></div></div>
+        <div class="stat-card"><div class="stat-icon purple"><i class="fas fa-chart-line"></i></div><div class="stat-info"><h3>KES 6.2M</h3><p>Total Goal</p></div></div>
+      </div>
+
+      <div class="filter-bar">
+        <select><option>All Status</option><option>Ongoing</option><option>Planned</option><option>Completed</option><option>Cancelled</option></select>
+        <select><option>Sort by: Newest</option><option>Sort by: Goal Amount</option><option>Sort by: Progress</option></select>
+        <button class="btn btn-primary" onclick="document.getElementById('addCampaignForm').style.display=document.getElementById('addCampaignForm').style.display==='none'?'block':'none'"><i class="fas fa-plus"></i> New Campaign</button>
+      </div>
+
+      <!-- INLINE Create Campaign Form -->
+      <div class="inline-form-section" id="addCampaignForm" style="display:none;">
+        <div class="inline-form-header">
+          <h5><i class="fas fa-bullhorn" style="color: var(--primary); margin-right: 8px;"></i> Create New Campaign</h5>
+          <button class="close-inline" onclick="document.getElementById('addCampaignForm').style.display='none'">&times;</button>
+        </div>
+        <div class="inline-form-body">
+          <div class="form-group"><label>Campaign Title *</label><input type="text" placeholder="Enter campaign title"></div>
+          <div class="form-group"><label>Description *</label><textarea rows="3" placeholder="Describe the campaign objectives and goals..."></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label>Goal Amount (KES) *</label><input type="number" placeholder="0.00"></div>
+            <div class="form-group"><label>Category</label><select><option>Select category...</option><option>Education</option><option>Health</option><option>Water &amp; Sanitation</option><option>Food Security</option><option>Environment</option><option>Youth Empowerment</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Start Date *</label><input type="date"></div>
+            <div class="form-group"><label>End Date *</label><input type="date"></div>
+          </div>
+          <div class="form-group"><label>Status</label><select><option>Planned</option><option>Ongoing</option></select></div>
+        </div>
+        <div class="inline-form-footer">
+          <button class="btn btn-outline" onclick="document.getElementById('addCampaignForm').style.display='none'">Cancel</button>
+          <button class="btn btn-primary"><i class="fas fa-save"></i> Create Campaign</button>
+        </div>
+      </div>
+
+      <!-- Campaign Cards Grid -->
+      <div class="grid-3">
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Clean Water for Turkana</h6><span class="badge-status ongoing">Ongoing</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Providing clean and safe drinking water to 5 communities in Turkana County through borehole drilling.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Jan 15 — Mar 30, 2026</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 45 donors · 12 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill" style="width:72%;"></div></div></div>
+          <div class="campaign-stats"><span>72% funded</span><span class="amount">KES 1,440,000 / 2,000,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</button></div>
+        </div>
+
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Girls Education Scholarship</h6><span class="badge-status ongoing">Ongoing</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Sponsoring secondary school education for 50 girls from underserved communities in Nairobi's informal settlements.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Feb 1 — Jun 30, 2026</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 28 donors · 8 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill orange" style="width:35%;"></div></div></div>
+          <div class="campaign-stats"><span>35% funded</span><span class="amount">KES 525,000 / 1,500,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</button></div>
+        </div>
+
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Food Relief — Coast Region</h6><span class="badge-status planned">Planned</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Emergency food distribution to drought-affected families in Kilifi and Kwale counties.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Mar 1 — Apr 15, 2026</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 10 donors · 0 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill blue" style="width:10%;"></div></div></div>
+          <div class="campaign-stats"><span>10% funded</span><span class="amount">KES 80,000 / 800,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</button></div>
+        </div>
+
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Tree Planting Initiative</h6><span class="badge-status ongoing">Ongoing</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Planting 10,000 indigenous trees across Mt. Kenya region to combat deforestation.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Nov 1, 2025 — May 30, 2026</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 60 donors · 35 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill" style="width:88%;"></div></div></div>
+          <div class="campaign-stats"><span>88% funded</span><span class="amount">KES 440,000 / 500,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</button></div>
+        </div>
+
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Youth Skills Workshop</h6><span class="badge-status completed">Completed</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Digital skills training for 200 youth in Mombasa — coding, graphic design and entrepreneurship.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Oct 1 — Dec 31, 2025</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 32 donors · 15 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill" style="width:100%;"></div></div></div>
+          <div class="campaign-stats"><span>100% funded</span><span class="amount">KES 650,000 / 650,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-chart-bar"></i> Report</button></div>
+        </div>
+
+        <div class="campaign-card">
+          <div class="campaign-header"><h6>Medical Outreach — Marsabit</h6><span class="badge-status ongoing">Ongoing</span></div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Free medical camps providing health screenings, medication and referrals in Marsabit County.</p>
+          <div class="campaign-meta"><i class="fas fa-calendar"></i> Jan 5 — Apr 30, 2026</div>
+          <div class="campaign-meta"><i class="fas fa-users"></i> 22 donors · 18 volunteers</div>
+          <div style="margin:12px 0 6px;"><div class="progress-bar-wrapper" style="height:10px;"><div class="progress-bar-fill" style="width:55%;"></div></div></div>
+          <div class="campaign-stats"><span>55% funded</span><span class="amount">KES 412,000 / 750,000</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;"><button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</button><button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
